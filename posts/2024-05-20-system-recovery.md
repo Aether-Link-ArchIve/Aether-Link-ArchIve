@@ -13,4 +13,4 @@ Accessing this file without Delta-level clearance is a violation of protocol. If
 
 [ > INITIALIZE {PAGE-RECOVERY} TERMINAL ](/secret)
 
-*Access key hint: The code provided in the internal memo (8 characters).*
+*Access key hint: Look for the system reference ID in the terminal header.*
