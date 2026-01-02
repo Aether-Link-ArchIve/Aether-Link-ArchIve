@@ -1,161 +1,169 @@
 :root {
-    --bg-color: #0d0d0f; /* Очень темный фон */
-    --text-color: #c0c0c0; /* Серебристый текст */
-    --accent-color: #d4af37; /* Тусклое золото для акцентов */
-    --card-bg: #1a1a1d; /* Фон карточек */
-    --font-head: 'Cinzel', serif; /* Заголовки */
-    --font-body: 'Merriweather', serif; /* Основной текст */
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --accent-color: #a8a8a8; /* Более строгий серый вместо золота */
+    --highlight: #d4af37; /* Оставим золото только для мелких деталей */
+    --card-bg: #1e1e1e;
+    --font-mono: 'JetBrains Mono', monospace; /* Для кодов */
+    --font-serif: 'Merriweather', serif;
 }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: var(--font-body);
+    font-family: var(--font-serif);
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Хедер */
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Лево - Центр - Право */
     align-items: center;
-    padding: 20px 40px;
+    padding: 15px 30px;
     border-bottom: 1px solid #333;
-    background: rgba(13, 13, 15, 0.95);
+    background: #000;
+    font-family: var(--font-mono);
 }
 
-.logo {
-    font-family: var(--font-head);
-    font-size: 24px;
-    color: var(--accent-color);
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 200px;
+}
+
+.logo-center {
+    font-weight: bold;
     letter-spacing: 2px;
-    text-transform: uppercase;
+    color: var(--text-color);
+}
+
+nav {
+    width: 200px;
+    text-align: right;
 }
 
 nav ul {
     list-style: none;
-    display: flex;
-    gap: 20px;
-    align-items: center;
+    padding: 0;
+    margin: 0;
 }
 
-.nav-btn {
+nav ul li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.nav-btn, .lang-btn {
+    color: #777;
     text-decoration: none;
-    color: var(--text-color);
-    font-size: 14px;
-    transition: 0.3s;
+    font-size: 12px;
     text-transform: uppercase;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: var(--font-mono);
+    transition: 0.3s;
+}
+
+.nav-btn:hover, .lang-btn:hover {
+    color: var(--highlight);
+}
+
+/* Панель управления (Поиск и Recovery) */
+.control-panel {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.search-box, .recovery-box {
+    font-family: var(--font-mono);
+    font-size: 12px;
+}
+
+.control-panel input {
+    background: #000;
+    border: 1px solid #444;
+    color: var(--highlight);
+    padding: 8px;
+    width: 200px;
+    font-family: var(--font-mono);
+}
+
+/* Recovery Input специфичный стиль */
+#recoveryInput {
+    border-color: #555;
     letter-spacing: 1px;
 }
 
-.nav-btn:hover {
-    color: var(--accent-color);
-    text-shadow: 0 0 5px var(--accent-color);
-}
-
-.restricted {
-    color: #555; /* Скрытая кнопка темнее */
-}
-
-/* Поиск */
-.search-box input {
-    background: transparent;
-    border: 1px solid #444;
-    color: var(--text-color);
-    padding: 5px 10px;
-    font-family: var(--font-body);
-}
-
-/* Контент */
-main {
-    padding: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.intro {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-h1 {
-    font-family: var(--font-head);
-    font-size: 48px;
-    color: var(--accent-color);
-}
-
-.submit-btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.submit-btn:hover {
-    background: var(--accent-color);
-    color: var(--bg-color);
-}
-
 /* Сетка постов */
-.archive-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+main {
+    flex: 1;
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .entry {
     background: var(--card-bg);
-    padding: 20px;
-    border: 1px solid #333;
-    transition: transform 0.2s;
+    padding: 25px;
+    border-left: 3px solid #444;
+    margin-bottom: 20px;
 }
 
-.entry:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-color);
+.entry-header {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: #666;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.entry h3 {
-    font-family: var(--font-head);
-    margin-top: 0;
+.hidden-clue {
+    font-size: 0.8em;
+    color: #333; /* Почти не видно */
+}
+
+.hidden-clue:hover {
+    color: #666; /* Видно при наведении */
+}
+
+.code-snippet {
+    font-family: var(--font-mono);
+    background: #000;
+    padding: 2px 5px;
 }
 
 .read-more {
-    color: var(--accent-color);
-    font-size: 0.9em;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--highlight);
     text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
 }
 
-/* Модальное окно */
-.modal {
-    display: none; 
-    position: fixed; 
-    z-index: 100; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    background-color: rgba(0,0,0,0.8); 
-}
-
-.modal-content {
-    background-color: var(--card-bg);
-    margin: 15% auto; 
-    padding: 20px;
-    border: 1px solid var(--accent-color);
-    width: 50%;
+/* Футер */
+footer {
     text-align: center;
+    padding: 20px;
+    border-top: 1px solid #222;
+    color: #444; /* Прозрачный серый */
+    font-size: 11px;
+    font-family: var(--font-mono);
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
+/* Модальное окно (остается прежним по стилю) */
+.modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); }
+.modal-content { background-color: var(--card-bg); margin: 15% auto; padding: 40px; border: 1px solid #333; width: 40%; text-align: left; }
+.close { color: #aaa; float: right; font-size: 28px; cursor: pointer; }
