@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aether-Link-ArchIve</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Aether-Link-ArchIve</div>
+        <nav>
+            <ul>
+                <li><a href="https://discord.gg/TVOY_KOD_PRIGLASHENIYA" target="_blank" class="nav-btn">Community</a></li>
+                
+                <li><a href="#" id="aboutBtn" class="nav-btn">About Us</a></li>
+                
+                <li><a href="secret.html" class="nav-btn restricted">???</a></li>
+                
+                <li>
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search archives...">
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h1>Welcome to the Aether.</h1>
+            <p>Explore the forgotten knowledge. Seek the truth.</p>
+            
+            <button id="langSwitch" class="lang-btn">EN / RU</button>
+            <br><br>
+            <a href="https://forms.google.com/your-form-link" target="_blank" class="submit-btn">Submit an Entry</a>
+        </section>
+
+        <hr class="divider">
+
+        <div class="archive-grid" id="archiveGrid">
+            
+            <article class="entry" data-title="Origin of Aether">
+                <h3>Origin of Aether</h3>
+                <p>The first recorded anomaly found in sector 7...</p>
+                <a href="#" class="read-more">Read Record -></a>
+            </article>
+
+            <article class="entry" data-title="The Silent Librarian">
+                <h3>The Silent Librarian</h3>
+                <p>Entities observing the silence within the halls...</p>
+                <a href="#" class="read-more">Read Record -></a>
+            </article>
+
+            <article class="entry" data-title="Key Protocol">
+                <h3>Key Protocol</h3>
+                <p>Instructions on how to access the hidden layer...</p>
+                <a href="#" class="read-more">Read Record -></a>
+            </article>
+
+        </div>
+    </main>
+
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>About Aether-Link-ArchIve</h2>
+            <p>We are the keepers of the digital unknown. This archive serves as a repository for strange phenomena.</p>
+            <p>Created by: [Твой Ник]</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
