@@ -3,72 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aether-Link-ArchIve</title>
+    <title>Aether-Link-ArchIve | System Index</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <div class="logo">Aether-Link-ArchIve</div>
+        <div class="header-left">
+            <i class="fa-solid fa-box-archive logo-icon"></i>
+            <button id="langSwitch" class="lang-btn">EN / RU</button>
+        </div>
+
+        <div class="logo-center">Aether-Link-ArchIve</div>
+
         <nav>
             <ul>
-                <li><a href="https://discord.gg/TVOY_KOD_PRIGLASHENIYA" target="_blank" class="nav-btn">Community</a></li>
-                
-                <li><a href="#" id="aboutBtn" class="nav-btn">About Us</a></li>
-                
-                <li><a href="secret.html" class="nav-btn restricted">???</a></li>
-                
-                <li>
-                    <div class="search-box">
-                        <input type="text" id="searchInput" placeholder="Search archives...">
-                    </div>
-                </li>
+                <li><a href="https://discord.gg/TVOY_KOD" target="_blank" class="nav-btn">Community Hub</a></li>
+                <li><a href="#" id="aboutBtn" class="nav-btn">System Info</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="intro">
-            <h1>Welcome to the Aether.</h1>
-            <p>Explore the forgotten knowledge. Seek the truth.</p>
+        <section class="control-panel">
+            <div class="search-box">
+                <label>KEYWORD SEARCH:</label>
+                <input type="text" id="searchInput" placeholder="Query database...">
+            </div>
             
-            <button id="langSwitch" class="lang-btn">EN / RU</button>
-            <br><br>
-            <a href="https://forms.google.com/your-form-link" target="_blank" class="submit-btn">Submit an Entry</a>
+            <div class="recovery-box">
+                <label>{PAGE-RECOVERY}:</label>
+                <input type="text" id="recoveryInput" placeholder="Enter Hash / Code...">
+            </div>
         </section>
 
         <hr class="divider">
 
         <div class="archive-grid" id="archiveGrid">
             
-            <article class="entry" data-title="Origin of Aether">
-                <h3>Origin of Aether</h3>
-                <p>The first recorded anomaly found in sector 7...</p>
-                <a href="#" class="read-more">Read Record -></a>
+            <article class="entry" data-title="System Initialization">
+                <div class="entry-header">
+                    <span class="entry-date">1998-10-24</span>
+                    <span class="entry-id">#001</span>
+                </div>
+                <h3>System Initialization</h3>
+                <p>The Aether-Link protocol has been established. Standard data retention policies apply. Unauthorized access attempts will be logged.</p>
+                <p class="hidden-clue">Error log: <span class="code-snippet">c2VjcmV0Lmh0bWw=</span></p> 
+                <a href="posts/post1.html" class="read-more">[OPEN FILE]</a>
             </article>
 
-            <article class="entry" data-title="The Silent Librarian">
-                <h3>The Silent Librarian</h3>
-                <p>Entities observing the silence within the halls...</p>
-                <a href="#" class="read-more">Read Record -></a>
-            </article>
-
-            <article class="entry" data-title="Key Protocol">
-                <h3>Key Protocol</h3>
-                <p>Instructions on how to access the hidden layer...</p>
-                <a href="#" class="read-more">Read Record -></a>
+            <article class="entry" data-title="Public Records">
+                <div class="entry-header">
+                    <span class="entry-date">1999-01-02</span>
+                    <span class="entry-id">#002</span>
+                </div>
+                <h3>Public Records Access</h3>
+                <p>Most sections of the library are open for public viewing. Please maintain silence within the digital halls.</p>
+                <a href="posts/post2.html" class="read-more">[OPEN FILE]</a>
             </article>
 
         </div>
     </main>
 
+    <footer>
+        <p>&copy; 2024 Aether-Link-ArchIve. All rights reserved.</p>
+        <p>Managed by Administrator: Forgotten.</p>
+    </footer>
+
     <div id="aboutModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>About Aether-Link-ArchIve</h2>
-            <p>We are the keepers of the digital unknown. This archive serves as a repository for strange phenomena.</p>
-            <p>Created by: [Твой Ник]</p>
+            <h2>System Information</h2>
+            <p><strong>Version:</strong> 2.0.4 Stable</p>
+            <p><strong>Admin:</strong> Forgotten</p>
+            <p>This repository serves as a neutral ground for data preservation. No anomalies detected in current sector.</p>
         </div>
     </div>
 
