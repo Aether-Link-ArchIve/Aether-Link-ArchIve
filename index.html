@@ -1,87 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aether-Link-ArchIve | System Index</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>AETHER-LINK | HOME</title>
+    <link rel="icon" type="image/jpeg" href="favicon.jpg">
+    <style>
+        body { font-family: 'Courier New', monospace; background: #050505; color: #444; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
+        .login-box { border: 1px solid #222; padding: 40px; text-align: center; transition: 0.5s; }
+        .login-box:hover { border-color: #00ff41; box-shadow: 0 0 20px rgba(0,255,65,0.1); }
+        h1 { font-size: 1rem; letter-spacing: 5px; margin-bottom: 30px; }
+        input { background: transparent; border: 1px solid #222; color: #00ff41; padding: 10px; width: 250px; outline: none; text-align: center; }
+        input:focus { border-color: #00ff41; }
+        button { background: transparent; border: 1px solid #222; color: #444; padding: 10px 20px; cursor: pointer; margin-top: 20px; text-transform: uppercase; }
+        button:hover { color: #00ff41; border-color: #00ff41; }
+        
+        /* Спрятанный код */
+        .hint { font-size: 0.6rem; color: #111; margin-top: 50px; user-select: none; }
+        .hint span { color: #151515; } /* Почти невидимый код */
+    </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-left">
-            <i class="fa-solid fa-box-archive logo-icon"></i>
-            <button id="langSwitch" class="lang-btn">EN / RU</button>
-        </div>
+<div class="login-box">
+    <h1>AETHER-LINK SYSTEM</h1>
+    <label for="mainKey" style="display:none;">Access Key</label>
+    <input type="password" id="mainKey" placeholder="GATE_KEY">
+    <br>
+    <button id="enterBtn">INITIALIZE</button>
 
-        <div class="logo-center">Aether-Link-ArchIve</div>
+    <div class="hint">
+        System_Revision: 1.0.4 <br>
+        Auth_Token: <span>AhUi90a8</span> </div>
+</div>
 
-        <nav>
-            <ul>
-                <li><a href="https://discord.gg/TVOY_KOD" target="_blank" class="nav-btn">Community Hub</a></li>
-                <li><a href="#" id="aboutBtn" class="nav-btn">System Info</a></li>
-            </ul>
-        </nav>
-    </header>
+<script>
+    const input = document.getElementById('mainKey');
+    const btn = document.getElementById('enterBtn');
 
-    <main>
-        <section class="control-panel">
-            <div class="search-box">
-                <label>KEYWORD SEARCH:</label>
-                <input type="text" id="searchInput" placeholder="Query database...">
-            </div>
-            
-            <div class="recovery-box">
-                <label>{PAGE-RECOVERY}:</label>
-                <input type="text" id="recoveryInput" placeholder="Enter Hash / Code...">
-            </div>
-        </section>
+    function checkKey() {
+        if (input.value === "AhUi90a8") {
+            // Исправлен путь: ведет на secret.html
+            window.location.href = "secret.html";
+        } else {
+            alert("GATEWAY ERROR: INVALID TOKEN");
+        }
+    }
 
-        <hr class="divider">
+    // Работа Enter
+    input.addEventListener('keypress', (e) => { if (e.key === 'Enter') checkKey(); });
+    btn.addEventListener('click', checkKey);
+</script>
 
-        <div class="archive-grid" id="archiveGrid">
-            
-            <article class="entry" data-title="System Initialization">
-                <div class="entry-header">
-                    <span class="entry-date">1998-10-24</span>
-                    <span class="entry-id">#001</span>
-                </div>
-                <h3>System Initialization</h3>
-                <p>The Aether-Link protocol has been established. Standard data retention policies apply. Unauthorized access attempts will be logged.</p>
-                <p class="hidden-clue">Error log: <span class="code-snippet">c2VjcmV0Lmh0bWw=</span></p> 
-                <a href="posts/post1.html" class="read-more">[OPEN FILE]</a>
-            </article>
-
-            <article class="entry" data-title="Public Records">
-                <div class="entry-header">
-                    <span class="entry-date">1999-01-02</span>
-                    <span class="entry-id">#002</span>
-                </div>
-                <h3>Public Records Access</h3>
-                <p>Most sections of the library are open for public viewing. Please maintain silence within the digital halls.</p>
-                <a href="posts/post2.html" class="read-more">[OPEN FILE]</a>
-            </article>
-
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Aether-Link-ArchIve. All rights reserved.</p>
-        <p>Managed by Administrator: Forgotten.</p>
-    </footer>
-
-    <div id="aboutModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>System Information</h2>
-            <p><strong>Version:</strong> 2.0.4 Stable</p>
-            <p><strong>Admin:</strong> Forgotten</p>
-            <p>This repository serves as a neutral ground for data preservation. No anomalies detected in current sector.</p>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
