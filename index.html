@@ -1,36 +1,43 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AETHER-LINK | GATEWAY</title>
     <link rel="icon" type="image/jpeg" href="favicon.jpg">
     <style>
-        body { font-family: 'Courier New', monospace; background: #050505; color: #333; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
+        body { font-family: 'Courier New', monospace; background: #050505; color: #444; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
         
-        .login-box { border: 1px solid #111; padding: 40px; text-align: center; transition: 0.5s; width: 320px; }
+        .login-box { border: 1px solid #111; padding: 40px; text-align: center; transition: 0.5s; width: 350px; }
         .login-box:hover { border-color: #004411; }
 
-        h1 { font-size: 0.9rem; letter-spacing: 4px; margin-bottom: 30px; color: #222; }
+        h1 { 
+            font-size: 1.2rem; 
+            letter-spacing: 4px; 
+            margin-bottom: 30px; 
+            color: #050505; 
+            -webkit-text-stroke: 1px #00ff41; 
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+            text-transform: uppercase;
+        }
         
-        input { background: transparent; border: 1px solid #1a1a1a; color: #00ff41; padding: 12px; width: 100%; box-sizing: border-box; outline: none; text-align: center; font-family: inherit; }
+        input { background: transparent; border: 1px solid #1a1a1a; color: #00ff41; padding: 12px; width: 100%; box-sizing: border-box; outline: none; text-align: center; font-family: inherit; font-size: 1rem; }
         input:focus { border-color: #00ff41; box-shadow: 0 0 10px rgba(0,255,65,0.1); }
         
-        button { background: transparent; border: 1px solid #1a1a1a; color: #222; padding: 10px 20px; cursor: pointer; margin-top: 20px; width: 100%; text-transform: uppercase; font-family: inherit; transition: 0.3s; }
+        button { background: transparent; border: 1px solid #1a1a1a; color: #555; padding: 10px 20px; cursor: pointer; margin-top: 20px; width: 100%; text-transform: uppercase; font-family: inherit; transition: 0.3s; }
         button:hover { color: #00ff41; border-color: #00ff41; }
 
-        /* ИСПРАВЛЕННЫЙ БЛОК СКРЫТОГО КОДА */
         .system-logs {
             margin-top: 40px;
-            font-size: 0.65rem;
-            color: #0f0f0f; /* Очень темно-серый, почти сливается */
+            font-size: 0.7rem;
+            color: #1a1a1a; 
             line-height: 1.4;
-            user-select: all; /* Позволяет легко выделить весь блок */
+            user-select: all;
+            text-align: left;
         }
 
-        /* Цвет кода при выделении станет контрастным */
         .secret-token {
-            color: #1a1a1a; /* Чуть светлее фона */
+            color: #2a2a2a; 
             font-weight: bold;
         }
     </style>
@@ -38,16 +45,17 @@
 <body>
 
 <div class="login-box">
-    <h1>AETHER-LINK SYSTEM</h1>
+    <h1>Aether-Link</h1>
     
-    <input type="password" id="mainKey" placeholder="GATE_KEY" autofocus>
-    <button id="enterBtn">INITIALIZE</button>
+    <input type="password" id="mainKey" placeholder="ACCESS_TOKEN" autofocus>
+    <button id="enterBtn">INITIALIZE SYSTEM</button>
 
     <div class="system-logs">
-        ID: 0x992-BA <br>
-        STATUS: RESTRICTED <br>
-        LOCAL_LOG: [SECURE_CHNL] <br>
-        DECRYPT_VAL: <span class="secret-token">AhUi90a8</span> </div>
+        NODE_ID: 0x992-BA <br>
+        SEC_STATUS: RESTRICTED <br>
+        UPLINK_GATE: [UROBOROS_READY] <br>
+        ROOT_AUTH: <span class="secret-token">AhUi90a8</span> 
+    </div>
 </div>
 
 <script>
@@ -55,13 +63,12 @@
     const btn = document.getElementById('enterBtn');
 
     function checkKey() {
-        // Убираем лишние пробелы, если игрок случайно скопировал код с ними
         if (input.value.trim() === "AhUi90a8") {
             window.location.href = "secret.html";
         } else {
-            console.log("Access Denied");
             input.style.borderColor = "#ff3333";
             setTimeout(() => { input.style.borderColor = "#1a1a1a"; }, 500);
+            input.value = "";
         }
     }
 
