@@ -3,35 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AETHER-LINK | HOME</title>
+    <title>AETHER-LINK | GATEWAY</title>
     <link rel="icon" type="image/jpeg" href="favicon.jpg">
     <style>
-        body { font-family: 'Courier New', monospace; background: #050505; color: #444; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
-        .login-box { border: 1px solid #222; padding: 40px; text-align: center; transition: 0.5s; }
-        .login-box:hover { border-color: #00ff41; box-shadow: 0 0 20px rgba(0,255,65,0.1); }
-        h1 { font-size: 1rem; letter-spacing: 5px; margin-bottom: 30px; }
-        input { background: transparent; border: 1px solid #222; color: #00ff41; padding: 10px; width: 250px; outline: none; text-align: center; }
-        input:focus { border-color: #00ff41; }
-        button { background: transparent; border: 1px solid #222; color: #444; padding: 10px 20px; cursor: pointer; margin-top: 20px; text-transform: uppercase; }
-        button:hover { color: #00ff41; border-color: #00ff41; }
+        body { font-family: 'Courier New', monospace; background: #050505; color: #333; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
         
-        /* Спрятанный код */
-        .hint { font-size: 0.6rem; color: #111; margin-top: 50px; user-select: none; }
-        .hint span { color: #151515; } /* Почти невидимый код */
+        .login-box { border: 1px solid #111; padding: 40px; text-align: center; transition: 0.5s; width: 320px; }
+        .login-box:hover { border-color: #004411; }
+
+        h1 { font-size: 0.9rem; letter-spacing: 4px; margin-bottom: 30px; color: #222; }
+        
+        input { background: transparent; border: 1px solid #1a1a1a; color: #00ff41; padding: 12px; width: 100%; box-sizing: border-box; outline: none; text-align: center; font-family: inherit; }
+        input:focus { border-color: #00ff41; box-shadow: 0 0 10px rgba(0,255,65,0.1); }
+        
+        button { background: transparent; border: 1px solid #1a1a1a; color: #222; padding: 10px 20px; cursor: pointer; margin-top: 20px; width: 100%; text-transform: uppercase; font-family: inherit; transition: 0.3s; }
+        button:hover { color: #00ff41; border-color: #00ff41; }
+
+        /* ИСПРАВЛЕННЫЙ БЛОК СКРЫТОГО КОДА */
+        .system-logs {
+            margin-top: 40px;
+            font-size: 0.65rem;
+            color: #0f0f0f; /* Очень темно-серый, почти сливается */
+            line-height: 1.4;
+            user-select: all; /* Позволяет легко выделить весь блок */
+        }
+
+        /* Цвет кода при выделении станет контрастным */
+        .secret-token {
+            color: #1a1a1a; /* Чуть светлее фона */
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
 <div class="login-box">
     <h1>AETHER-LINK SYSTEM</h1>
-    <label for="mainKey" style="display:none;">Access Key</label>
-    <input type="password" id="mainKey" placeholder="GATE_KEY">
-    <br>
+    
+    <input type="password" id="mainKey" placeholder="GATE_KEY" autofocus>
     <button id="enterBtn">INITIALIZE</button>
 
-    <div class="hint">
-        System_Revision: 1.0.4 <br>
-        Auth_Token: <span>AhUi90a8</span> </div>
+    <div class="system-logs">
+        ID: 0x992-BA <br>
+        STATUS: RESTRICTED <br>
+        LOCAL_LOG: [SECURE_CHNL] <br>
+        DECRYPT_VAL: <span class="secret-token">AhUi90a8</span> </div>
 </div>
 
 <script>
@@ -39,15 +55,16 @@
     const btn = document.getElementById('enterBtn');
 
     function checkKey() {
-        if (input.value === "AhUi90a8") {
-            // Исправлен путь: ведет на secret.html
+        // Убираем лишние пробелы, если игрок случайно скопировал код с ними
+        if (input.value.trim() === "AhUi90a8") {
             window.location.href = "secret.html";
         } else {
-            alert("GATEWAY ERROR: INVALID TOKEN");
+            console.log("Access Denied");
+            input.style.borderColor = "#ff3333";
+            setTimeout(() => { input.style.borderColor = "#1a1a1a"; }, 500);
         }
     }
 
-    // Работа Enter
     input.addEventListener('keypress', (e) => { if (e.key === 'Enter') checkKey(); });
     btn.addEventListener('click', checkKey);
 </script>
