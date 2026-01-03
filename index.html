@@ -8,7 +8,7 @@
     <style>
         body { font-family: 'Courier New', monospace; background: #050505; color: #444; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
         
-        .login-box { border: 1px solid #111; padding: 40px; text-align: center; transition: 0.5s; width: 350px; }
+        .login-box { border: 1px solid #111; padding: 40px; text-align: center; width: 350px; transition: 0.5s; }
         .login-box:hover { border-color: #004411; }
 
         h1 { 
@@ -27,28 +27,16 @@
         button { background: transparent; border: 1px solid #1a1a1a; color: #555; padding: 10px 20px; cursor: pointer; margin-top: 20px; width: 100%; text-transform: uppercase; font-family: inherit; transition: 0.3s; }
         button:hover { color: #00ff41; border-color: #00ff41; }
 
-        .system-logs {
-            margin-top: 40px;
-            font-size: 0.7rem;
-            color: #1a1a1a; 
-            line-height: 1.4;
-            user-select: all;
-            text-align: left;
-        }
-
-        .secret-token {
-            color: #2a2a2a; 
-            font-weight: bold;
-        }
+        .system-logs { margin-top: 40px; font-size: 0.7rem; color: #1a1a1a; text-align: left; line-height: 1.4; }
+        .secret-token { color: #2a2a2a; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="login-box">
     <h1>Aether-Link</h1>
-    
     <input type="password" id="mainKey" placeholder="ACCESS_TOKEN" autofocus>
-    <button id="enterBtn">INITIALIZE SYSTEM</button>
+    <button id="enterBtn">GET ARCHIVE ACCESS</button>
 
     <div class="system-logs">
         NODE_ID: 0x992-BA <br>
@@ -64,6 +52,8 @@
 
     function checkKey() {
         if (input.value.trim() === "AhUi90a8") {
+            // Переведенная угроза
+            alert("Good day, unidentified individual. We wish to notify you... all your actions here are being logged. Access without authorization may have consequences that affect your actual life.");
             window.location.href = "secret.html";
         } else {
             input.style.borderColor = "#ff3333";
